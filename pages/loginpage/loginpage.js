@@ -12,14 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Kiểm tra với tài khoản Admin (từ file JSON của bạn)
         if (username === "admin" && password === "admin123") {
             alert("Đăng nhập tài khoản Quản trị viên thành công!");
-            // Lưu trạng thái đăng nhập (nếu cần)
             localStorage.setItem("userRole", "admin");
             window.location.href = "../admin/admin.html";
         } else {
-            // Giả lập đăng nhập thành công cho người dùng bình thường
             alert("Đăng nhập thành công!");
             localStorage.setItem("userRole", "user");
             window.location.href = "../homepage/homepage.html";

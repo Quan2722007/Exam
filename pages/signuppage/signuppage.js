@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Mật khẩu xác nhận không khớp!");
             return;
         }
-
-        // Giả lập đăng ký thành công (Sau này bạn có thể gọi API json-server POST vào đây)
         alert("Đăng ký tài khoản thành công! Bạn có thể đăng nhập ngay bây giờ.");
         window.location.href = "../loginpage/loginpage.html";
     });
