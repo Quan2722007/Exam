@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quản lý sản phẩm - Admin</title>
+        <link rel="stylesheet" href="../../share/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="admin.css" />
+    </head>
+    <body class="bg-light">
+        <nav class="bgNav mb-4 shadow-sm p-2">
+            <div class="container-fluid d-flex justify-content-end">
+                <a href="../homepage/homepage.html" class="btn btn-outline-success btn-sm"><i class="fa-solid fa-right-from-bracket"></i> Về trang web</a>
+            </div>
+        </nav>
+
+        <main class="container mb-5">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 gap-3">
+                <h3 class="m-0 fw-bold">Quản lý sản phẩm</h3>
+                <button class="btn btn-success shadow-sm" data-bs-toggle="modal" data-bs-target="#productModal"><i class="fa-solid fa-plus"></i> Thêm sản phẩm mới</button>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle m-0 text-center">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Danh mục</th>
+                                    <th>Giá (VNĐ)</th>
+                                    <th>Đã bán</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminProductTableBody">
+                                <tr>
+                                    <td>1</td>
+                                    <td><img src="../../assets/anhCay/cayNguGiaBi.png" alt="Cây ngũ gia bì" class="product-img" /></td>
+                                    <td class="text-start fw-bold">Cây ngũ gia bì</td>
+                                    <td>Cây trong nhà</td>
+                                    <td class="text-danger fw-bold">220.000đ</td>
+                                    <td>100</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary me-1" title="Sửa"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title fw-bold" id="productModalLabel">Thông tin sản phẩm</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="productForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="productName" class="form-label">Tên sản phẩm</label>
+                                    <input type="text" class="form-control" id="productName" placeholder="Nhập tên cây..." required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="productPrice" class="form-label">Giá (VNĐ)</label>
+                                    <input type="number" class="form-control" id="productPrice" placeholder="Ví dụ: 150000" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="productCategory" class="form-label">Vị trí trồng (Danh mục)</label>
+                                    <select class="form-select" id="productCategory" required>
+                                        <option value="Cây trong nhà">Cây trong nhà</option>
+                                        <option value="Cây dễ chăm">Cây dễ chăm</option>
+                                        <option value="Cây trồng nước">Cây trồng nước</option>
+                                        <option value="Cây trồng đất">Cây trồng đất</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fileImg" class="form-label">Đường dẫn hình ảnh</label>
+                                    <input type="file" class="form-control" id="fileImg" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="method" class="form-label">Phương thức trồng</label>
+                                    <input type="file" class="form-control" id="method" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fileImg" class="form-label">Đường dẫn hình ảnh</label>
+                                    <input type="file" class="form-control" id="size" placeholder="assets/anhCay/..." required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fileImg" class="form-label">Đường dẫn hình ảnh</label>
+                                    <input type="file" class="form-control" id="fileImg" placeholder="assets/anhCay/..." required />
+                                </div>
+                                <div class="col-12">
+                                    <label for="productDesc" class="form-label">Thông tin mô tả</label>
+                                    <textarea class="form-control" id="productDesc" rows="3" placeholder="Mô tả chi tiết về sản phẩm..."></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-success" id="btnSaveProduct">Lưu sản phẩm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://kit.fontawesome.com/c4edd7a73c.js" crossorigin="anonymous"></script>
+        <script src="../../share/js/bootstrap.min.js"></script>
+        <script src="admin.js"></script>
+    </body>
+</html>

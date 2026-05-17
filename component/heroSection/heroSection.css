@@ -1,0 +1,51 @@
+:root {
+    --cl-titleHero: #ffffff;
+    --cl-contentHero: #faf9f9f2;
+}
+.bgHero {
+    width: 100%;
+    height: fit-content;
+}
+.bgHero .picture {
+    width: 100%;
+    height: 100%;
+}
+.bgHero .bgOverlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.542);
+}
+.bgHero .heroBanner {
+    gap: 20px;
+}
+.heroBanner .titleHero {
+    font-family: var(--font-title);
+    color: var(--cl-titleHero);
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 700;
+}
+.heroBanner .contentHero {
+    font-family: var(--font-content);
+    color: var(--cl-contentHero);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: 400;
+    width: 80%;
+}
+.heroBanner .btnCTA {
+    font-size: 20px;
+    padding: 8px 16px;
+}
+
+@media screen and (max-width: 905px) {
+    .bgHero {
+        height: 306px;
+    }
+    .bgHero .picture {
+        object-fit: cover;
+    }
+}
+@media screen and (max-width: 770px) {
+    .bgHero {
+        height: 500px;
+    }
+}

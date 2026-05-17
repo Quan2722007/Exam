@@ -1,0 +1,118 @@
+{
+    "categories": [
+        {
+            "id": "1",
+            "tenDanhMuc": "Cây trong nhà",
+            "hinhAnh": "assets/danhMucCay/cayVanPhong.png"
+        },
+        {
+            "id": "2",
+            "tenDanhMuc": "Cây dễ chăm ",
+            "hinhAnh": "assets/danhMucCay/cayDeCham.png"
+        },
+        {
+            "id": "3",
+            "tenDanhMuc": "Cây trồng nước ",
+            "hinhAnh": "assets/danhMucCay/cayTrongNuoc.png"
+        },
+        {
+            "id": "4",
+            "tenDanhMuc": "Cây trồng đất ",
+            "hinhAnh": "assets/danhMucCay/cayTrongDat.png"
+        }
+    ],
+    "products": [
+        {
+            "id": "1",
+            "viTriTrong": "Cây trong nhà",
+            "phuongThucTrong": "Trồng đất",
+            "hinhAnh": "assets/anhCay/cayNguGiaBi.png",
+            "tenSanPham": "Cây ngũ gia bì",
+            "gia": 220000,
+            "thongTin": "Ngũ gia bì là loại cây mang lại tài vận, thịnh vượng và may mắn, trồng trong nhà sẽ mang đến một không gian thư thái, trong lành cho gia đình.",
+            "quyCach": ["Kích thước chậu: 20×18 cm", "Chiều cao tổng: 40-50 cm"],
+            "doKho": "Dễ chăm sóc",
+            "yeuCauAnhSang": "Nắng tán xạ, chịu được nắng trực tiếp",
+            "nhuCauNuoc": "Tưới nước 2 – 3 lần/tuần",
+            "soLanBan": 100
+        },
+        {
+            "id": "2",
+            "viTriTrong": "Cây trong nhà",
+            "phuongThucTrong": "Trồng đất",
+            "hinhAnh": "assets/anhCay/cayLuoiHo.png",
+            "tenSanPham": "Cây lưỡi hổ",
+            "gia": 150000,
+            "thongTin": "Lưỡi hổ Thái xanh mini là dòng lưỡi hổ nhỏ để bàn, có chiều cao tối đa khoảng 20cm, không có nhiều vằn như những loại lưỡi hổ khác, nhưng nó lại sở hữu bộ lá màu xanh đậm ấn tượng, mang lại nét ‘cứng cáp’ tự nhiên cho không gian. Chúng rất thích hợp để trên bàn làm việc, kệ trang trí hoặc làm quà tặng.",
+            "quyCach": ["Kích thược 12×11 cm", "Chiều cao: 10 – 15 cm"],
+            "doKho": "Dễ chăm sóc",
+            "yeuCauAnhSang": "Nắng tán xạ, chịu bóng râm tốt",
+            "nhuCauNuoc": "Tưới nước 2 – 3 lần/tháng",
+            "soLanBan": 52
+        },
+        {
+            "id": "3",
+            "viTriTrong": "Cây trong nhà",
+            "phuongThucTrong": "Trồng đất",
+            "hinhAnh": "assets/anhCay/cayTruongSinhXanh.png",
+            "tenSanPham": "Cây trường sinh xanh",
+            "gia": 115000,
+            "thongTin": "Cây trường sinh xanh là một loại cây cảnh trong nhà đẹp mắt, với bộ lá luôn xanh mát, sức sống mãnh liệt, dễ chăm sóc. Đây cũng là loại cây phong thủy với tác dụng mang đến sức khỏe, may mắn và tiền tài tới cho gia chủ. Người ta thường hay tặng cây trường sinh vào những dịp đặc biệt như là một lời chúc phúc tới người nhận.",
+            "quyCach": ["Kích thược 14×14 cm", "Chiều cao: 30 cm"],
+            "doKho": "Dễ chăm sóc",
+            "yeuCauAnhSang": "Nắng tán xạ, chịu râm mát",
+            "nhuCauNuoc": "Tưới nước 2 – 3 lần/tuần",
+            "soLanBan": 78
+        },
+        {
+            "id": "4",
+            "viTriTrong": "Cây trong nhà",
+            "phuongThucTrong": "Trồng đất",
+            "hinhAnh": "assets/anhCay/cayKiemTien.png",
+            "tenSanPham": "Cây kim tiền",
+            "gia": 150000,
+            "thongTin": "Kim tiền là biểu tượng của tài lộc và phú quý. Cây có lá xanh bóng, sinh trưởng mạnh mẽ, rất phù hợp để trang trí bàn làm việc.",
+            "quyCach": ["Kích thước chậu: 15×15 cm", "Chiều cao tổng: 30-40 cm"],
+            "doKho": "Rất dễ chăm sóc",
+            "yeuCauAnhSang": "Nắng tán xạ, chịu bóng râm tốt",
+            "nhuCauNuoc": "Tưới nước 1 lần/tuần",
+            "soLanBan": 0
+        },
+        {
+            "id": "5",
+            "viTriTrong": "Cây trong nhà",
+            "phuongThucTrong": "Trồng đất",
+            "hinhAnh": "assets/anhCay/cayKimNgan.png",
+            "tenSanPham": "Cây Kim Ngân",
+            "gia": 450000,
+            "thongTin": "Kim Ngân mang ý nghĩa thu hút tiền tài. Thân cây thường được uốn xoắn vào nhau tạo sự vững chắc, bền chặt trong công việc.",
+            "quyCach": ["Kích thước chậu: 18×18 cm", "Chiều cao tổng: 40-45 cm"],
+            "doKho": "Dễ chăm sóc",
+            "yeuCauAnhSang": "Tránh ánh nắng gắt trực tiếp, hợp với ánh sáng dịu",
+            "nhuCauNuoc": "Tưới nước 1-2 lần/tuần",
+            "soLanBan": 0
+        },
+        {
+            "id": "6",
+            "viTriTrong": "Cây trong nhà",
+            "phuongThucTrong": "Trồng đất",
+            "hinhAnh": "assets/anhCay/cayNgocNgan.png",
+            "tenSanPham": "Cây Ngọc Ngân",
+            "gia": 135000,
+            "thongTin": "Sự pha trộn giữa hai màu xanh và trắng lạ mắt. Cây mang đến nguồn năng lượng tích cực, xua tan căng thẳng mệt mỏi.",
+            "quyCach": ["Kích thước chậu: 15×15 cm", "Chiều cao tổng: 25-30 cm"],
+            "doKho": "Dễ chăm sóc",
+            "yeuCauAnhSang": "Thích hợp môi trường máy lạnh, ánh sáng đèn",
+            "nhuCauNuoc": "Tưới nước 2-3 lần/tuần",
+            "soLanBan": 260
+        }
+    ],
+    "users": [
+        {
+            "id": "1",
+            "tenDangNhap": "admin",
+            "matKhau": "admin123",
+            "role": "admin"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+:root {
+    --bg-primary: #157347;
+    --cl-textPrimary: #ffffff;
+}
+.primary {
+    background-color: var(--bg-primary);
+    color: var(--cl-textPrimary);
+    cursor: pointer;
+    border-radius: 8px;
+    width: fit-content;
+    height: fit-content;
+    border: 0;
+}
+.primary:active,
+.secondary:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.438);
+}
+.secondary {
+    color: var(--bg-primary);
+    border: 2px solid var(--bg-primary);
+    cursor: pointer;
+    border-radius: 7px;
+    width: fit-content;
+    height: fit-content;
+}

@@ -1,0 +1,10 @@
+.btnPrev {
+    color: #222222;
+    text-decoration: none;
+    cursor: pointer;
+    gap: 10px;
+    padding-top: 12px;
+}
+.btnPrev:hover {
+    color: #157347;
+}
