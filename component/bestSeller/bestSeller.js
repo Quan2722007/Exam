@@ -87,14 +87,29 @@ function renderBestSeller() {
     });
 }
 
-function fetchBestSellerData() {
-    fetch("http://localhost:3000/products")
-        .then((response) => response.json())
-        .then((products) => {
-            bestSellerState.products = products.sort((a, b) => b.soLanBan - a.soLanBan).slice(0, 5);
-            renderBestSeller();
-        })
-        .catch((error) => console.error("Lỗi khi tải danh mục sản phẩm:", error));
+async function fetchBestSellerData() {
+    try {
+        const response = await fetch("https://6a106463d2a985707036bbf0.mockapi.io/exames/examess");
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        let listBestProducts = [];
+        if (Array.isArray(data) && data[0] && data[0].products) {
+            listBestProducts = data[0].products;
+        } else if (data.products) {
+            listBestProducts = data.products;
+        } else if (Array.isArray(data) && data.length > 1 && data[1].products) {
+            listBestProducts = data[1].products;
+        }
+
+        bestSellerState.products = listBestProducts.sort((a, b) => b.soLanBan - a.soLanBan).slice(0, 5);
+
+        renderBestSeller();
+    } catch (error) {
+        console.error("Lỗi khi tải danh sách sản phẩm:", error);
+    }
 }
 
 if (btnNext) {

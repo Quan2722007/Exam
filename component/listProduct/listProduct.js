@@ -5,7 +5,7 @@ let listProductState = {
 
 const listProduct = document.getElementsByClassName("listProduct")[0];
 
-function renderListProduct() {
+function renderListProduct(product) {
     if (!listProduct) return;
 
     if (listProductState.products.length === 0) {
@@ -78,14 +78,30 @@ function renderListProduct() {
     });
 }
 
-function fetchAllProducts() {
-    fetch("http://localhost:3000/products")
-        .then((response) => response.json())
-        .then((products) => {
-            listProductState.allProducts = products;
-            filterCategory();
-        })
-        .catch((error) => console.error("Lỗi khi tải danh sách sản phẩm:", error));
+async function fetchAllProducts() {
+    try {
+        const response = await fetch("https://6a106463d2a985707036bbf0.mockapi.io/exames/examess");
+        const data = await response.json();
+
+        let listProducts = [];
+        // Kiểm tra linh hoạt cấu trúc trả về từ MockAPI
+        if (Array.isArray(data) && data[0] && data[0].products) {
+            listProducts = data[0].products;
+        } else if (data.products) {
+            listProducts = data.products;
+        } else if (Array.isArray(data) && data.length > 1 && data[1].products) {
+            listProducts = data[1].products;
+        } else {
+            listProducts = data;
+        }
+
+        listProductState.allProducts = listProducts;
+
+        // Gọi filterCategory() để kiểm tra param URL và render
+        filterCategory();
+    } catch (error) {
+        console.error("Lỗi khi tải danh sách sản phẩm:", error);
+    }
 }
 
 export function filterProducts(filters) {
