@@ -11,18 +11,14 @@ const listProductContainer = productCategory.querySelector(".wrapProductCategory
 async function getAPICategories() {
     try {
         const response = await fetch("https://6a106463d2a985707036bbf0.mockapi.io/exames/examess");
-        if (!response.ok) {
-            throw new Error(`Lỗi HTTP! Trạng thái: ${response.status}`);
-        }
         const data = await response.json();
 
         let listCategories = [];
-        if (Array.isArray(data) && data[0] && data[0].categories) {
-            listCategories = data[0].categories; // Nếu mockapi trả về mảng chứa 1 object tổng
+        if (Array.isArray(data)) {
+            const record = data.find((item) => item.categories);
+            if (record) listCategories = record.categories;
         } else if (data.categories) {
-            listCategories = data.categories; // Nếu mockapi trả về 1 object có key 'categories'
-        } else if (Array.isArray(data)) {
-            listCategories = data; // Nếu mockapi trả về trực tiếp mảng categories
+            listCategories = data.categories;
         }
 
         renderProductCategory(listCategories);

@@ -37,7 +37,6 @@ if (filter) {
     const categorySelect = filter.querySelector("#categorySelect");
     const priceSelect = filter.querySelector("#priceSelect");
 
-    // Lấy tên danh mục từ URL (nếu có) và cập nhật giao diện Select
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get("category");
     if (categoryParam) {
@@ -57,7 +56,7 @@ if (filter) {
         let debounceTimer;
         const debounceHandleFilter = () => {
             clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(handleFilter, 300); // Lọc sau khi ngừng gõ 300ms
+            debounceTimer = setTimeout(handleFilter, 300);
         };
 
         searchInput.addEventListener("input", debounceHandleFilter);

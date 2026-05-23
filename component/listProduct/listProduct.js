@@ -5,7 +5,7 @@ let listProductState = {
 
 const listProduct = document.getElementsByClassName("listProduct")[0];
 
-function renderListProduct(product) {
+function renderListProduct() {
     if (!listProduct) return;
 
     if (listProductState.products.length === 0) {
@@ -49,7 +49,7 @@ function renderListProduct(product) {
     const addToCartBtns = listProduct.querySelectorAll(".addToCart");
     addToCartBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const productInfo = {
+            const productInfor = {
                 id: btn.getAttribute("data-id"),
                 name: btn.getAttribute("data-name"),
                 price: parseInt(btn.getAttribute("data-price")),
@@ -58,14 +58,14 @@ function renderListProduct(product) {
             };
 
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const existingProduct = cart.find((item) => item.id === productInfo.id);
+            const existingProduct = cart.find((item) => item.id === productInfor.id);
             if (existingProduct) {
                 existingProduct.quantity += 1;
             } else {
-                cart.push(productInfo);
+                cart.push(productInfor);
             }
             localStorage.setItem("cart", JSON.stringify(cart));
-            alert(`Đã thêm ${productInfo.name} vào giỏ hàng!`);
+            alert(`Đã thêm ${productInfor.name} vào giỏ hàng!`);
         });
     });
 
@@ -84,20 +84,17 @@ async function fetchAllProducts() {
         const data = await response.json();
 
         let listProducts = [];
-        // Kiểm tra linh hoạt cấu trúc trả về từ MockAPI
-        if (Array.isArray(data) && data[0] && data[0].products) {
-            listProducts = data[0].products;
+        if (Array.isArray(data)) {
+            const record = data.find((item) => item.products);
+            if (record) listProducts = record.products;
         } else if (data.products) {
             listProducts = data.products;
-        } else if (Array.isArray(data) && data.length > 1 && data[1].products) {
-            listProducts = data[1].products;
-        } else {
-            listProducts = data;
         }
 
         listProductState.allProducts = listProducts;
 
-        // Gọi filterCategory() để kiểm tra param URL và render
+        renderListProduct();
+
         filterCategory();
     } catch (error) {
         console.error("Lỗi khi tải danh sách sản phẩm:", error);

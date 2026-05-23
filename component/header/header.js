@@ -21,8 +21,21 @@ header.innerHTML = `
                     <i class="fa-solid fa-cart-shopping me-2"></i>
                     <span>Giỏ hàng</span>
                 </div>
-                <div class="block p-left">
+                
+                <div id="auth-buttons" class="block p-left">
                     <button class="btn btn-success btn-sm btnLogin">Đăng nhập</button>
+                </div>
+
+                <div id="user-menu" class="dropdown d-none">
+                    <button class="btn btn-sm text-white dropdown-toggle d-flex align-items-center gap-2" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                        <span id="display-username">Username</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger fw-bold" href="#" id="btnLogout"><i class="fa-solid fa-right-from-bracket me-2"></i> Đăng xuất</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -55,9 +68,6 @@ header.innerHTML = `
                     </li>
                     <li class="navItem nav-item d-flex align-items-center justify-content-center">
                         <a class="navLink nav-link" href="../../pages/productspage/productspage.html" id="productspage">Cây cảnh</a>
-                    </li>
-                    <li class="navItem nav-item d-flex align-items-center justify-content-center">
-                        <a class="navLink nav-link" href="../../pages/homepage/homepage.html" id="homepage">Chăm sóc</a>
                     </li>
                 </ul>
                 
@@ -104,6 +114,38 @@ btnCart.addEventListener("click", () => {
 });
 
 const btnLogin = header.querySelector(".btnLogin");
-btnLogin.addEventListener("click", () => {
-    window.location.href = `../loginpage/loginpage.html`;
-});
+if (btnLogin) {
+    btnLogin.addEventListener("click", () => {
+        window.location.href = `../loginpage/loginpage.html`;
+    });
+}
+
+const authButtons = header.querySelector("#auth-buttons");
+const userMenu = header.querySelector("#user-menu");
+const displayUsername = header.querySelector("#display-username");
+const btnLogout = header.querySelector("#btnLogout");
+
+const activeUserString = localStorage.getItem("activeUser");
+
+if (activeUserString) {
+    try {
+        const activeUser = JSON.parse(activeUserString);
+        if (authButtons) authButtons.classList.add("d-none");
+        if (userMenu) userMenu.classList.remove("d-none");
+        if (displayUsername) displayUsername.textContent = activeUser.tenDangNhap;
+    } catch (error) {
+        console.error("Lỗi khi parse dữ liệu User:", error);
+    }
+}
+
+if (btnLogout) {
+    btnLogout.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
+            localStorage.removeItem("activeUser");
+            localStorage.removeItem("userRole");
+            // Có thể thêm localStorage.removeItem("cart"); nếu bạn muốn làm trống giỏ hàng khi đăng xuất
+            window.location.reload();
+        }
+    });
+}

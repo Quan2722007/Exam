@@ -2,12 +2,27 @@ const productDetail = document.getElementsByClassName("productDetail")[0];
 
 async function fetchProductDetail(productId) {
     try {
-        const response = await fetch(`http://localhost:3000/products/${productId}`);
+        const response = await fetch("https://6a106463d2a985707036bbf0.mockapi.io/exames/examess");
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
-        const product = await response.json();
-        renderProductDetail(product);
+        const data = await response.json();
+
+        let listProducts = [];
+        if (Array.isArray(data)) {
+            const record = data.find((item) => item.products);
+            if (record) listProducts = record.products;
+        } else if (data.products) {
+            listProducts = data.products;
+        }
+
+        const product = listProducts.find((p) => p.id === productId);
+
+        if (product) {
+            renderProductDetail(product);
+        } else {
+            productDetail.innerHTML = `<p class="text-danger fs-5 mt-4">Không tìm thấy sản phẩm này trên hệ thống.</p>`;
+        }
     } catch (error) {
         console.error("Error fetching product detail:", error);
         productDetail.innerHTML = `<p class="text-danger">Không thể tải thông tin sản phẩm. Vui lòng thử lại sau.</p>`;

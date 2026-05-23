@@ -18,9 +18,6 @@ footer.innerHTML = `
                     <li class="navItem d-flex align-items-center ">
                         <a class="navLinkFooter" href="../../pages/homepage/homepage.html" id="homepage">Cây cảnh</a>
                     </li>
-                    <li class="navItem d-flex align-items-center ">
-                        <a class="navLinkFooter" href="../../pages/homepage/homepage.html" id="homepage">Chăm sóc</a>
-                    </li>
                 </ul>
             </div>
             <div class=" d-flex flex-column blockFooter">
